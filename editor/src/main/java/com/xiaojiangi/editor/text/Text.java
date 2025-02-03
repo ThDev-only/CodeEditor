@@ -192,7 +192,9 @@ public class Text {
         for (int i = 0; i < text.length(); i++) {
             char c = text.charAt(i);
             if (c == '\n') {
-                current.insert(0, text.subSequence(index, i-1));
+                if (i > index) {
+    current.insert(0, text.subSequence(index, i));
+}
                 current = new TextLine();
                 linkedList.add(current);
                 index = i+1;
